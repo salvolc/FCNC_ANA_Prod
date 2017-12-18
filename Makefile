@@ -46,7 +46,16 @@ py: aufgabe.py
 light: $(PRO)
 	./$(PRO)
 
-pres: $(plots)
+vertex: 
+	g++ vertex.cpp -o vertex -fopenmp $(CXXFLAGS) $(LIBS)
+	./vertex
+
+pres:
+	cd Vortrag/ && make
+	cp Vortrag/build/Presentation.pdf ./
+
+pp:
+	python3.5 aufgabe.py
 	cd Vortrag/ && make
 	cp Vortrag/build/Presentation.pdf ./
 
